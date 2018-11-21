@@ -14,7 +14,9 @@ class PacienteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name')->add('lastename')->add('idNumber')->add('idType')->add('observation')->add('analisis');
-    }/**
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

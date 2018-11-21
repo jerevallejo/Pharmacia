@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="paciente")
  * @ORM\Entity(repositoryClass="PacienteBundle\Repository\PacienteRepository")
  */
-class Paciente
+class Paciente implements \JsonSerializable
 {
     /**
      * @var int
@@ -217,10 +217,10 @@ class Paciente
         return [
                 'id' => $this->getId(),
                 'name' => $this->getName(),
-                'apellido' => $this->getLastename(),
-                'DNI' => $this->getIdType(),
-                'phone'=> $this->getIdNumber(),
-                'obervation'=>$this->getObservation()
+                'lastename' => $this->getLastename(),
+                'idNumber'=> $this->getIdNumber(),
+                'idType' => $this->getIdType(),
+                'obervatio  n'=>$this->getObservation()
                 ];
     }
 

@@ -60,7 +60,7 @@ class AnalisisController extends Controller
     /**
      * Finds and displays a analisi entity.
      *
-     * @Route("/{id}", name="analisis_show")
+     * @Route("/show/{id}", name="analisis_show")
      * @Method("GET")
      */
     public function showAction(Analisis $analisi)

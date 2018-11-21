@@ -2,7 +2,7 @@
 
 namespace PacienteBundle\Controller;
 
-use PacienteBundle\Entity\Paciente;
+use PacienteBundle\Entity\Analisis;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,35 +10,35 @@ use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 
-class PacienteApiController extends Controller
+class AnalisisApiController extends Controller
 {
 	 /**
-     * @Route("paciente/api/pacientes/list", name="paciente_api_pacientes_list")
+     * @Route("analisis/api/analisis/list", name="analisis_api_analisis_list")
      * @Method("GET")
      */
     public function listAction()
     {	
     	$em = $this->getDoctrine()->getManager();
 
-        $pacientes = $em->getRepository('PacienteBundle:Paciente')->findAll();
+        $analisis = $em->getRepository('PacienteBundle:Analisis')->findAll();
         
         $response= new Response();
         $response->headers->add([
                                     'Content-Type' => 'application/json'
                                 ]);
-        $response->setContent(json_encode($pacientes));
+        $response->setContent(json_encode($analisis));
         return $response;
     }
 
 	/**
-	 *@Route("/paciente/api/add", name="paciente_api_add")
+	 *@Route("/analisis/api/add", name="analisis_api_add")
 	 *@Method("POST")
 	 */
 	public function addAction(Request $r){
-		$paciente = new Paciente();
+		$analisis = new Analisis();
 		$form = $this->createForm(
-			'PacienteBundle\Form\PacienteApiType',
-			$paciente,
+			'PacienteBundle\Form\AnalisisApiType',
+			$analisis,
 			[
 				'csrf_protection' => false
 			]
@@ -61,9 +61,9 @@ class PacienteApiController extends Controller
 		if (true === $valid)
 		{
 			$em = $this->getDoctrine()->getManager();
-			$em->persist($paciente);
+			$em->persist($analisis);
 			$em->flush();
-			$response->setContent(json_encode($paciente));
+			$response->setContent(json_encode($analisis));
 		}
 
 		return $response;

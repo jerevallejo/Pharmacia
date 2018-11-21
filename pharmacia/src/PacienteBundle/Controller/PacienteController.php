@@ -5,7 +5,8 @@ namespace PacienteBundle\Controller;
 use PacienteBundle\Entity\Paciente;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Paciente controller.
@@ -60,7 +61,7 @@ class PacienteController extends Controller
     /**
      * Finds and displays a paciente entity.
      *
-     * @Route("/{id}", name="paciente_show")
+     * @Route("/show/{id}", name="paciente_show")
      * @Method("GET")
      */
     public function showAction(Paciente $paciente)
