@@ -220,7 +220,8 @@ class Paciente implements \JsonSerializable
                 'lastename' => $this->getLastename(),
                 'idNumber'=> $this->getIdNumber(),
                 'idType' => $this->getIdType(),
-                'obervatio  n'=>$this->getObservation()
+                'obervation'=>$this->getObservation(),
+                'analisis'=>$this->getAnalisis()
                 ];
     }
 

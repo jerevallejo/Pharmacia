@@ -91,7 +91,8 @@ class Analisis implements \JsonSerializable
     {
         return [
                 'id' => $this->getId(),
-                'name' => $this->getName()
+                'name' => $this->getName(),
+                'pacientes'=>$this->getPacientes()
                 ];
     }
 
